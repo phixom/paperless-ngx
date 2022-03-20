@@ -1,0 +1,83 @@
+---
+paperlessngx_version: latest  # 'latest', release number, or github branch/tag/commit/ref
+
+# Required services
+paperlessngx_redis_host: localhost
+paperlessngx_redis_port: 6379
+paperlessngx_db_type: sqlite # or postgresql
+# Below entries only apply for paperlessngx_db_type=='postgresql'
+paperlessngx_db_host: localhost
+paperlessngx_db_port: 5432
+paperlessngx_db_name: paperlessngx
+paperlessngx_db_user: paperlessngx
+paperlessngx_db_pass: paperlessngx
+paperlessngx_db_sslmode: prefer
+
+# Paths and folders
+paperlessngx_directory: /opt/paperless-ngx
+paperlessngx_consumption_dir: "{{ paperlessngx_directory }}/consumption"
+paperlessngx_data_dir: "{{ paperlessngx_directory }}/data"
+paperlessngx_media_root: "{{ paperlessngx_directory }}/media"
+paperlessngx_staticdir: "{{ paperlessngx_directory }}/static"
+paperlessngx_filename_format:
+paperlessngx_logging_dir: "{{ paperlessngx_data_dir }}/log"
+paperlessngx_virtualenv: "{{ paperlessngx_directory }}/.venv"
+
+# Hosting & Security
+paperlessngx_secret_key: PLEASECHANGETHISFORTHELOVEOFGOD
+paperlessngx_allowed_hosts: "*"
+paperlessngx_cors_allowed_hosts: http://localhost:8000
+paperlessngx_force_script_name:
+paperlessngx_static_url: /static/
+paperlessngx_auto_login_username:
+paperlessngx_cookie_prefix: ""
+paperlessngx_enable_http_remote_user: False
+
+# OCR settings
+paperlessngx_ocr_languages:
+  - eng
+paperlessngx_ocr_mode: skip
+paperlessngx_ocr_clean: clean
+paperlessngx_ocr_deskew: True
+paperlessngx_ocr_rotate_pages: True
+paperlessngx_ocr_rotate_pages_threshold: 12
+paperlessngx_ocr_output_type: pdfa
+paperlessngx_ocr_pages: 0
+paperlessngx_ocr_image_dpi:
+# see https://ocrmypdf.readthedocs.io/en/latest/api.html#ocrmypdf.ocr
+paperlessngx_ocr_user_args:
+  - "optimize": 1
+paperlessngx_use_jbig2enc: True
+paperlessngx_big2enc_lossy: False
+
+# Tika settings
+paperlessngx_tika_enabled: False
+paperlessngx_tika_endpoint: http://localhost:9998
+paperlessngx_tika_gotenberg_endpoint: http://localhost:3000
+
+# Software tweaks
+paperlessngx_time_zone: Europe/Berlin
+paperlessngx_consumer_polling: 0
+paperlessngx_consumer_delete_duplicates: False
+paperlessngx_consumer_recursive: False
+paperlessngx_consumer_subdirs_as_tags: False
+paperlessngx_convert_memory_limit: 0
+paperlessngx_convert_tmpdir:
+paperlessngx_optimize_thumbnails: True
+paperlessngx_post_consume_script:
+paperlessngx_filename_date_order:
+paperlessngx_thumbnail_font_name: /usr/share/fonts/liberation/LiberationSerif-Regular.ttf
+paperlessngx_ignore_dates: ""
+
+# Superuser settings
+paperlessngx_superuser_name: paperlessngx
+paperlessngx_superuser_email: paperlessngx@example.com
+paperlessngx_superuser_password: paperlessngx
+
+# System user settings
+paperlessngx_system_user: paperlessngx
+paperlessngx_system_group: paperlessngx
+
+# Webserver settings
+paperlessngx_listen_address: 127.0.0.1
+paperlessngx_listen_port: 8000
